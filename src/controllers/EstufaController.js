@@ -2,11 +2,12 @@ const estufaModel = require('./../database/schemas/EstufaModel');
 
 class EstufaController {
   async create(req, res) {
-    const { titulo, descricao } = req.body;
+    const { titulo, descricao, temperatura } = req.body;
 
     const estufa = await estufaModel.create({
       titulo,
-      descricao
+      descricao,
+      temperatura
     });
 
     return res.status(200).json(estufa);
@@ -20,10 +21,11 @@ class EstufaController {
 
   async update(req, res) {
     const { id } = req.params;
-    const { titulo, descricao } = req.body;
+    const { titulo, descricao, temperatura } = req.body;
     const estufa = await estufaModel.findOneAndUpdate({ _id: id}, {
       titulo,
-      descricao
+      descricao,
+      temperatura
     });
 
     return res.json(estufa);

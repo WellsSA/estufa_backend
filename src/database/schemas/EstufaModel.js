@@ -10,6 +10,10 @@ const EstufaModelSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    temperatura: {
+      type: Number,
+      required: true,
+    }
   },
   {
     timestamps: true,
